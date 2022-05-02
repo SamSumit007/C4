@@ -1,3 +1,4 @@
+import { Link, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Login } from "./components/Login";
 import { Logout } from "./components/Logout";
@@ -34,12 +35,10 @@ function App() {
 <Route path='/login' element ={<Login /> } ></Route>
 <Route path='/logout' element ={<Logout />} ></Route>
 <Route path='orders' element ={<Orders />} ></Route>
-<Route path='/neworder' element ={<NewOrder /> } ></Route>
-
+<Route path='/neworder' element ={
 <ProtectedRoute>
-  
-</ProtectedRoute>
-
+<NewOrder /> 
+</ProtectedRoute>} ></Route>
 
 
       </Routes>
