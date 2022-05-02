@@ -16,7 +16,7 @@ export const Orders = () => {
   
   
     axios.post("http://localhost:8080/orders", info).then(()=>  getData())
-    // console.log(data);
+     console.log(data);
   
 
 
@@ -69,12 +69,15 @@ export const Orders = () => {
             </tr>
           </thead>
           <tbody>
+        
+          {data.map((e) => {
+            return (
             <tr className="orders-row">
-              <td className="id"></td>
-              <td className="problem"></td>
-              <td className="owner"></td>
-              <td className="status"></td>
-              <td className="cost"></td>
+              <td className="id">{e.id}</td>
+              <td className="problem">{e.problem}</td>
+              <td className="owner">{e.owner_name}</td>
+              <td className="status">{e.status}</td>
+              <td className="cost">{e.cost}</td>
               <td className="change-status">
                 {/* Show select dropdown only if status is Not Accepted */}
                 <select className="changeStatus" name="changeStatus" onChange={handleChange}>
@@ -90,6 +93,8 @@ export const Orders = () => {
                 <button>Accept</button>
               </td>
             </tr>
+            )
+          })}
           </tbody>
         </table>
       </div>
